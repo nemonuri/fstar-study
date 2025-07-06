@@ -2,8 +2,15 @@
   <!-- See https://aka.ms/dotnet/msbuild/customize for more details on customizing your build -->
   <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))"
           Condition="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../')) != ''" />
+
   <PropertyGroup>
     <Artifact_props_WorkspaceDirectory>$(MSBuildThisFileDirectory)</Artifact_props_WorkspaceDirectory>
+    <OtherFlags>$(OtherFlags) --mlcompatibility</OtherFlags>
   </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(DesignTimeBuild)' != 'true' ">
+    <FSTAR_FLAGS>$(FSTAR_FLAGS) --force --log_queries</FSTAR_FLAGS>
+  </PropertyGroup>
+
   <Import Project="$(MSBuildThisFileDirectory)res/snippet/msbuild/Artifact.props" />
 </Project>
