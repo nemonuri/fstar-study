@@ -1,0 +1,4 @@
+[submodule "nuget"]
+	path = res/snippet/msbuild/nuget
+	url = https://github.com/nemonuri/nuget-config
+	branch = main
