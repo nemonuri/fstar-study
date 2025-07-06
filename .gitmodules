@@ -2,3 +2,4 @@
 	path = res/snippet/msbuild/nuget
 	url = https://github.com/nemonuri/nuget-config
 	branch = main
+	update = merge

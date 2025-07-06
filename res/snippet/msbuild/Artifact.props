@@ -1,0 +1,7 @@
+<Project>
+    <PropertyGroup Condition="'$(Artifact_props_WorkspaceDirectory)' != ''">
+        <ArtifactDirectory>$(Artifact_props_WorkspaceDirectory)artifact/</ArtifactDirectory>
+        <UseArtifactsOutput>true</UseArtifactsOutput>
+        <ArtifactsPath>$(ArtifactDirectory)dotnet</ArtifactsPath>
+    </PropertyGroup>
+</Project>
