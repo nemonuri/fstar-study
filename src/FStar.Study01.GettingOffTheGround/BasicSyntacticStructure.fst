@@ -43,21 +43,13 @@ let defined_type1 = ()
 - inductive type definitions
   - = datatypes
   - 타입의 귀납(inductive)적 정의
+  - 다음 형태를 한, **타입 생성자 정의식**이 반복된다.
+    - | *'타입 생성자 식별자'* : *'타입 생성자 시그니쳐'*
+      - 타입 생성자 식별자는 반드시 대문자로 시작한다.
+  - 타입 생성자 정의식이 둘 이상이면, SMT Query 가 발생한다.
 
 > **사담**
 > - 엄밀히 말하면, 귀납이 아닌 연역적 정의다.
 > - '수학적 귀납법'에서 이름을 따 온건가?
 *)
-
-(*
-```fstar
-type type3_defined_by_datatype = | By_type1 : [|type1_defined_by_signature|] | By_type2 : type2_defined_by_let_binding
-```
-
-```
-- Identifier not found: [type1_defined_by_signature]
-```
-
-- 뭐지? 왜 이 부분에서 에러가 나는거지?
-*)
-//type defined_type2 = | D1 : unit
+type defined_type2 = | D1 : defined_type2 | D2 : unit -> defined_type2
