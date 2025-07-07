@@ -1,17 +1,15 @@
 <Project Sdk="FStarLang.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>net8.0</TargetFramework>
     <LangVersion>5.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Program.fst" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="nuget.config" />
+    <Compile Include="TestProgram.fst" Condition="false"/>
+    <Compile Include="BooleanRefinementType.fst" Condition="false"/>
+    <Compile Include="BasicSyntacticStructure.fst" />
   </ItemGroup>
 
 </Project>

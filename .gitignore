@@ -485,3 +485,4 @@ $RECYCLE.BIN/
 
 artifact/
 .fst.config.json
+.cache.boot/
