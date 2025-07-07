@@ -8,8 +8,8 @@
 
   <ItemGroup>
     <Compile Include="TestProgram.fst" Condition="false"/>
-    <Compile Include="BooleanRefinementType.fst" Condition="false"/>
     <Compile Include="BasicSyntacticStructure.fst" />
+    <Compile Include="BooleanRefinementType.fst"/>
   </ItemGroup>
 
 </Project>
