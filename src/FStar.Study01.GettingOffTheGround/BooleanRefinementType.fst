@@ -24,3 +24,28 @@ let odd = x:int { x % 2 = 1 } //the odd numbers
 (*
 ## [Refinement subtyping](https://fstar-lang.org/tutorial/book/part1/part1_getting_off_the_ground.html#basic-syntactic-structure)
 *)
+
+(*
+## Refinement subtyping
+
+객체 지형 언어의 'Type Casting'과 비슷한 개념
+
+1. *eliminating* a refinement type
+
+- = 개량 타입 제거
+- `e:( x:t{ p } ) ⊢ e:t`
+
+2. *introducing* a refinement type
+
+- = 개량 타입 도입
+- `e:t , p[x := e] ⊢ e:( x:t{ p } )`
+- F* 컴파일러는 `p[x := e]`의 진리값을 판단하기 위해 SMT solver를 사용한다.
+*)
+
+(*
+## An example
+
+(TODO)
+*)
+let v1:even = 2
+let v2:odd = v1 + 1 // 이 코드 한 줄을 추가하니, SMT Query가 발생한다.
