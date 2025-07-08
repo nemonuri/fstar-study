@@ -1,4 +1,4 @@
-module BooleanRefinementType
+module FStar.Study01.GettingOffTheGround.BooleanRefinementType
 
 // # [Boolean refinement types](https://fstar-lang.org/tutorial/book/part1/part1_getting_off_the_ground.html#boolean-refinement-types)
 

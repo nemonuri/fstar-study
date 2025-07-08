@@ -1,15 +1,17 @@
-<Project Sdk="FStarLang.Sdk">
+<Project Sdk="FStarLang.Sdk" TreatAsLocal="Prefix">
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <TargetFramework>net8.0</TargetFramework>
     <LangVersion>5.0</LangVersion>
+    <Prefix>FStar.Study01.GettingOffTheGround</Prefix>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="TestProgram.fst" Condition="false"/>
-    <Compile Include="BasicSyntacticStructure.fst" />
-    <Compile Include="BooleanRefinementType.fst"/>
+    <Compile Include="$(Prefix).TestProgram.fst" Condition="false"/>
+    <Compile Include="$(Prefix).BasicSyntacticStructure.fst" />
+    <Compile Include="$(Prefix).BooleanRefinementType.fst"/>
+    <Compile Include="$(Prefix).Functions.fst"/>
   </ItemGroup>
 
 </Project>

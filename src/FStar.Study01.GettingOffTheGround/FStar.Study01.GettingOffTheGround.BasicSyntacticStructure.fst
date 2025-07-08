@@ -1,4 +1,4 @@
-module BasicSyntacticStructure
+module FStar.Study01.GettingOffTheGround.BasicSyntacticStructure
 
 // # [Basic syntactic structure](https://fstar-lang.org/tutorial/book/part1/part1_getting_off_the_ground.html#basic-syntactic-structure)
 
