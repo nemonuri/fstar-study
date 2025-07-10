@@ -1,0 +1,17 @@
+<Project Sdk="FStarLang.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>5.0</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Part1.Quicksort.fst" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="nuget.config" />
+  </ItemGroup>
+
+</Project>
