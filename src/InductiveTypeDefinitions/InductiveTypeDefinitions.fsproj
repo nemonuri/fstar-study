@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="$(Prefix).Vectors.fst" />
+    <Compile Include="$(Prefix).NonPositive.fst" />
     <Compile Include="$(Prefix).StrictlyPositiveDefinitions.fst" />
   </ItemGroup>
 
