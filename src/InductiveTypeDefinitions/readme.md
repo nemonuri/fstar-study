@@ -1,0 +1,1 @@
+[Inductive type definitions](https://fstar-lang.org/tutorial/book/part2/part2_inductive_type_families.html)

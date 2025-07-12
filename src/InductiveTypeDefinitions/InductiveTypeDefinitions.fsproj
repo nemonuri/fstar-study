@@ -1,0 +1,14 @@
+<Project Sdk="FStarLang.Sdk" TreatAsLocal="Prefix">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>5.0</LangVersion>
+    <Prefix>InductiveTypeDefinitions</Prefix>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="$(Prefix).StrictlyPositiveDefinitions.fst" />
+  </ItemGroup>
+
+</Project>
