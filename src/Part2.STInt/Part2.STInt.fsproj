@@ -1,0 +1,15 @@
+<Project Sdk="FStarLang.Sdk" TreatAsLocal="Prefix">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>5.0</LangVersion>
+    <Prefix>Part2</Prefix>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="$(Prefix).STInt.fst" />
+    <Compile Include="$(Prefix).Free.fst" />
+  </ItemGroup>
+
+</Project>
