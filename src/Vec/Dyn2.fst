@@ -13,4 +13,5 @@ noeq
 type dyn2 =
   | Error1 : (dyn2 -> bool) -> dyn2
   | Error2 : (bool -> dyn2 -> int) -> dyn2
+  | Error3 : ((dyn2 & dyn2) -> bool) -> dyn2
 #pop-options
