@@ -105,3 +105,60 @@ type lexicographic_order (#a:Type)
 (*
 ...아니, 그래서, '<<' 가 low level 에서 의미하는 바가 뭔데?!??
 *)
+
+assume
+val lexicographic_order_wf (#a:Type) (#b:a -> Type)
+                           (#r_a:binrel a)
+                           (#r_b:(x:a -> binrel (b x)))
+                           (wf_a:well_founded r_a)
+                           (wf_b:(x:a -> well_founded (r_b x)))
+  : well_founded (lexicographic_order r_a r_b)
+
+
+//A type abbreviation for a pair of nats
+//  we're using dependent pairs, even though there's no real dependence here
+let nat_pair = (x:nat & nat)
+
+//Making a lexicographic ordering from a pair of nat ordering
+let lex_order_nat_pair 
+  : binrel nat_pair
+  = lexicographic_order lt_nat (fun _ -> lt_nat)
+
+// The lex order on nat pairs is well-founded, using our general proof
+// of lexicographic composition of well-founded orders
+let lex_order_nat_pair_wf 
+  : well_founded lex_order_nat_pair
+  = lexicographic_order_wf wf_lt_nat (fun _ -> wf_lt_nat)
+
+// A utility to introduce lt_nat
+let mk_lt_nat (x:nat) (y:nat { x < y }) 
+  : lt_nat x y
+  = let _ : equals (x < y) true = Refl in
+    ()
+    
+// A utility to make a lex ordering of nat pairs
+let mk_lex_order_nat_pair (xy0:nat_pair) 
+                          (xy1:nat_pair {
+                            let (|x0, y0|) = xy0 in
+                            let (|x1, y1|) = xy1 in
+                            x0 < x1 \/ (x0 == x1 /\ y0 < y1)
+                          })
+  : lex_order_nat_pair xy0 xy1
+  = let (|x0, y0|) = xy0 in
+    let (|x1, y1|) = xy1 in
+    if x0 < x1 then Left_lex x0 x1 y0 y1 (mk_lt_nat x0 x1)
+    else Right_lex x0 y0 y1 (mk_lt_nat y0 y1)
+
+// Defining ackermann, where `arec` is called for recursive calls
+// on pairs that precede xy, lexicographically
+let ackermann' (xy: nat_pair)
+               (arec: (xy':nat_pair -> lex_order_nat_pair xy' xy -> nat))
+  : nat
+  = let (| x, y |) = xy in
+    if x = 0 then y + 1
+    else if y = 0 then arec (| x - 1, 1 |) (mk_lex_order_nat_pair _ _)
+    else arec (| x - 1, arec (| x, y - 1|) (mk_lex_order_nat_pair _ _) |)
+              (mk_lex_order_nat_pair _ _)
+
+// Tie the knot with `fix`
+let ackermann : nat_pair -> nat = fix lex_order_nat_pair_wf (fun _ -> nat) ackermann'
