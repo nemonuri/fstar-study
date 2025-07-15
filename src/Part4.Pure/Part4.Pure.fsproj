@@ -1,0 +1,15 @@
+<Project Sdk="FStarLang.Sdk" TreatAsLocal="Prefix">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>5.0</LangVersion>
+    <Prefix>Part4.Pure</Prefix>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="$(Prefix).Factorial.fst" />
+    <Compile Include="$(Prefix).ImperativeLanguage.fst" />
+  </ItemGroup>
+
+</Project>
