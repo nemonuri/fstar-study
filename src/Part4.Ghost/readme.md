@@ -1,0 +1,1 @@
+[Erasure and the Ghost Effect](https://fstar-lang.org/tutorial/book/part4/part4_ghost.html)
